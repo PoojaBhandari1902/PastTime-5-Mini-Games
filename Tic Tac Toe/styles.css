@@ -1,0 +1,248 @@
+
+:root{
+
+    --cell-size :100px ;
+    --mark-size : calc(var(--cell-size) * .7);
+}
+
+
+
+
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Lobster', cursive;
+    background-color: #54aceb;
+    
+    
+}
+
+
+h1{
+    text-align: center;
+    font-size: 6rem;
+    margin-top: 2rem;
+    margin-bottom: 0;
+    color: #EA047E;
+    text-shadow: 4px 4px #fff;
+   
+   
+}
+
+/* .quote{
+    text-align: center;
+    margin-bottom: 0;
+    margin-top: 0;
+    font-size: 2.5rem;
+    color: rgb(6, 100, 14);
+} */
+
+
+.board{
+                                  /* 3kg full cream         mattha 1kg            double tone 1 kg */
+    margin: auto;
+    height: 75vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(3,auto);
+    cursor : pointer;
+
+    
+}
+
+.cell{
+    width: var(--cell-size);
+    height: var(--cell-size);
+    font-size: 3rem;
+    background-color: #54aceb;
+    border: 3px solid #070f30;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+   
+}
+
+
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3){
+
+border-top: none;
+
+}
+
+
+.cell:nth-child(3n+1){
+    border-left: none;
+}
+
+.cell:nth-child(3n+3){
+    border-right: none;
+}
+
+
+.cell:last-child,
+.cell:nth-child(8),
+.cell:nth-child(7){
+
+border-bottom: none;
+
+}
+
+
+.cell.x,
+.cell.circle{
+    cursor: not-allowed;
+}
+
+
+.cell.x::before,
+.cell.x::after{
+    background-color:red;
+}
+
+.cell.circle::before{
+background-color: white;
+}
+
+
+.board.x .cell:not(.x):not(.circle):hover::after,
+.board.x .cell:not(.x):not(.circle):hover::before,
+.board.circle .cell:not(.x):not(.circle):hover::before{
+    background-color: grey;
+}
+
+
+
+.cell.x::before ,
+.cell.x::after,
+.board.x .cell:not(.x):not(.circle):hover::after,
+.board.x .cell:not(.x):not(.circle):hover::before{
+    content:'';
+    width: calc(var(--mark-size)*.15);
+    height: var(--mark-size);
+    position: absolute;
+    
+  
+}
+
+
+
+.cell.x::before,
+.board.x .cell:not(.x):not(.circle):hover::before{
+    transform: rotate(45deg);
+}
+
+.cell.x::after,
+.board.x .cell:not(.x):not(.circle):hover::after{
+    transform: rotate(-45deg);
+}
+
+
+.cell.circle::before ,
+.cell.circle::after,
+.board.circle .cell:not(.x):not(.circle):hover::after,
+.board.circle .cell:not(.x):not(.circle):hover::before{
+    content:'';
+    border-radius: 50%;
+    position: absolute;
+    
+    
+  
+}
+
+.cell.circle::before,
+.board.circle .cell:not(.x):not(.circle):hover::before{
+    width: var(--mark-size);
+    height: var(--mark-size);
+   
+}
+
+
+.cell.circle::after,
+.board.circle .cell:not(.x):not(.circle):hover::after{
+
+    width: calc(var(--mark-size)*.7);
+    height: calc(var(--mark-size)*.7);
+    background-color: #54aceb;
+
+}
+
+
+.cloud2{
+    position: relative;
+    
+}
+
+.cloud1{
+    position: relative;
+    
+}
+
+.cloud3{
+    position: relative;
+    
+}
+
+.cloud4{
+    position: relative;
+    
+}
+
+
+.winning-message{
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0 ,0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    color:#d63689;
+    text-shadow: 4px 4px #fff;
+    font-size: 5rem;
+    flex-direction: column;
+    
+}
+
+.text-winning{
+    margin-bottom: 20px;
+}
+
+.winning-message button{
+    font-size: 2rem;
+    padding: .25rem .5rem;
+    cursor: pointer;
+    border: none;
+    font-family: 'Fredoka One', cursive;
+    width: 15rem;
+    border-radius: 30px;
+    background-color: purple;
+    color: white;
+    
+
+}
+
+
+.winning-message button:hover {
+    background-color: yellow;
+    color:brown;
+}
+
+
+.winning-message.show{
+    display: flex;
+}
+
+
+
+
+
